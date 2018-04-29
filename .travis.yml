@@ -3,13 +3,11 @@ language: go
 go:
   - 1.x
 install:
-  - go get -u github.com/tcnksm/ghr
-  - go get github.com/mitchellh/gox
 script:
   - go test .
 deploy:
   provider: script
-  script: make build upload TAG=$TRAVIS_TAG
+  script: make upload-dep build upload TAG=$TRAVIS_TAG
   on:
     tags: true
     all_branches: true
