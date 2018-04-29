@@ -1,0 +1,1 @@
+# go-bin-release-example
