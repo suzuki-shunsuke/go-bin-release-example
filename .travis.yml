@@ -5,9 +5,5 @@ go:
 install:
 script:
   - go test .
-deploy:
-  provider: script
-  script: make upload-dep build upload TAG=$TRAVIS_TAG
-  on:
-    tags: true
-    all_branches: true
+after_success:
+  - bash upload.sh
