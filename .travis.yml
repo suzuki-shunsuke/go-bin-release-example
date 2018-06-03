@@ -1,5 +1,6 @@
----
+# .travis.yml
 language: go
+
 addons:
   apt:
     packages:
@@ -7,19 +8,19 @@ addons:
     - rpm
     # needed for the snap pipe:
     - snapcraft
+
 env:
 # needed for the snap pipe:
 - PATH=/snap/bin:$PATH
-go:
-- 1.x
+
 install:
 # needed for the snap pipe:
 - sudo snap install snapcraft --classic
+
 # needed for the docker pipe
 services:
 - docker
-script:
-- go test .
+
 # calls goreleaser
 deploy:
 - provider: script
